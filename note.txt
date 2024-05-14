@@ -1,0 +1,8 @@
+git clone <your-repository-url>
+cd <your-repository-directory>
+
+python -m venv venv
+
+.\venv\Scripts\activate
+
+pip install -r requirements.txt
