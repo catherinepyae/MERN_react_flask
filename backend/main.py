@@ -21,10 +21,10 @@ def get_contacts():
     contacts = Contact.query.all() #user flask ... to the alchemy which is ORM, to get all the context that exists inside of the contact database
     #these contacts are python objects so can't return those from code
     #so need to return those in json code
-    json_contacts = list(map(lambda x:x.to_json(), contacts))
+    json_contacts = list(map(lambda x: x.to_json(), contacts))
     return jsonify({"contacts": json_contacts})
 
-@app.route("/create_contact",methods=[POST])
+@app.route("/create_contact", methods=["POST"])
 def create_contact():
     first_name = request.json.get("firstName")
     last_name = request.json.get("lastName")
@@ -49,7 +49,7 @@ def create_contact():
 
 #Update
 #need to know what kind of contact we are updating
-@app.route("/update_contact/<int:user_id>, methods=["PATCH"])
+@app.route("/update_contact/<int:user_id>", methods=["PATCH"])
 def update_contact(user_id):
     contact = Contact.query.get(user_id)#contact 11
 
